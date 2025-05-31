@@ -22,7 +22,7 @@
 	"module": "./dist/index.mjs",
 	"scripts": {
 		"build": "tsup ./src",
-		"typecheck": "tsgo --noEmit",
+		"typecheck": "tsgo --noEmit src",
 		"biome": "biome check --write src",
 		"biome:ci": "biome ci src"
 	},
