@@ -9,7 +9,10 @@
 	"author": "mehm8128",
 	"license": "MIT",
 	"description": "queryByRole for browser.",
-	"files": ["dist", "package.json"],
+	"files": [
+		"dist",
+		"package.json"
+	],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -24,14 +27,17 @@
 		"build": "tsup ./src",
 		"typecheck": "tsgo --noEmit src",
 		"biome": "biome check --write src",
-		"biome:ci": "biome ci src"
+		"biome:ci": "biome ci src",
+		"test": "vitest run"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@types/aria-query": "^5.0.4",
 		"@types/node": "^22.15.29",
 		"@typescript/native-preview": "7.0.0-dev.20250531.1",
-		"tsup": "^8.5.0"
+		"jsdom": "^26.1.0",
+		"tsup": "^8.5.0",
+		"vitest": "^3.1.4"
 	},
 	"dependencies": {
 		"aria-query": "^5.3.2",
