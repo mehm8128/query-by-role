@@ -10,18 +10,17 @@ export class TargetWindow {
 	constructor(window: Window) {
 		this.window = window
 	}
-	queryByRole(role: string, options: QueryByRoleOptions): Element[] {
-		const { name } = options
+	queryByRole(role: string, options?: QueryByRoleOptions): Element[] {
 		const window = this.window
 
 		const selector = this.getSelectorForRole(role)
 
 		const elements = Array.from(window.document.querySelectorAll(selector))
 		const filteredElements = elements.filter((element: Element) => {
-			if (name === undefined) {
+			if (options?.name === undefined) {
 				return true
 			}
-			return this.getAccessibleName(element) === name
+			return this.getAccessibleName(element) === options.name
 		})
 
 		return filteredElements
