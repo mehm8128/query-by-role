@@ -21,7 +21,7 @@ export class TargetWindow {
 			if (name === undefined) {
 				return true
 			}
-			this.getAccessibleName(element) === name
+			return this.getAccessibleName(element) === name
 		})
 
 		return filteredElements
