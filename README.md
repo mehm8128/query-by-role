@@ -21,7 +21,9 @@ console.log(buttonRoleElements.all()); // -> [button]
 ## Features
 
 You can create a `TargetWindow` instance with `createTargetWindow` which you'll use to query elements by role.
+
 You can use `.queryByRole()` to get elements by their ARIA role, and you can filter them by various options such as `name`, `pressed`, `selected`, `busy`, and `expanded`.
+
 Matched elements are returned as a `QueryResult` instance, which provides some methods to access the elements.
 
 ```ts
