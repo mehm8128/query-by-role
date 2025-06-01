@@ -2,6 +2,8 @@
 
 [![CI on main](https://github.com/mehm8128/query-by-role/actions/workflows/main.yml/badge.svg)](https://github.com/mehm8128/query-by-role/actions/workflows/main.yml)
 [![NPM Version](https://img.shields.io/npm/v/query-by-role)](https://www.npmjs.com/package/query-by-role)
+[![JSR](https://jsr.io/badges/@mehm8128/query-by-role)](https://jsr.io/@mehm8128/query-by-role)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is a implementation of `queryByRole()` for browser.
