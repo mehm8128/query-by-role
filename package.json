@@ -9,10 +9,7 @@
 	"author": "mehm8128",
 	"license": "MIT",
 	"description": "queryByRole for browser.",
-	"files": [
-		"dist",
-		"package.json"
-	],
+	"files": ["dist", "package.json", "README.md", "LICENSE"],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -24,7 +21,7 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"scripts": {
-		"build": "tsup ./src",
+		"build": "tsup",
 		"typecheck": "tsgo --noEmit src",
 		"biome": "biome check --write src",
 		"biome:ci": "biome ci src",

@@ -3,7 +3,7 @@ export class QueryResult {
 	constructor(elements: Element[]) {
 		this.elements = elements
 	}
-	get length() {
+	get length(): number {
 		return this.elements.length
 	}
 	all(): Element[] {
