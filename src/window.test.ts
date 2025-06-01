@@ -1,6 +1,6 @@
-import { createTargetWindow } from './index'
+import { createTargetWindow } from './window'
 
-describe('index', () => {
+describe('window', () => {
 	beforeEach(() => {
 		document.body.innerHTML = `
       <button aria-pressed="true">This is a button</button>
@@ -13,7 +13,8 @@ describe('index', () => {
 			name: 'This is a button',
 			pressed: true
 		})
-		expect(elements.length).toBe(1)
-		expect(elements[0].tagName.toLowerCase()).toBe('button')
+
+		expect(elements.all().length).toBe(1)
+		expect(elements.first()?.tagName.toLowerCase()).toBe('button')
 	})
 })

@@ -1,4 +1,5 @@
 import { type ARIARoleDefinitionKey, roles } from 'aria-query'
+import { computeAccessibleName } from 'dom-accessibility-api'
 import type {
 	AriaBusyValue,
 	AriaExpandedValue,
@@ -9,7 +10,12 @@ import { stringOrNullToBoolean } from './utils/stringOrNullToBoolean'
 
 // ref: https://www.w3.org/TR/html-aam-1.0/#html-attribute-state-and-property-mappings
 
-export const getAriaPressedInternal = (
+export const getAccessibleName = (element: Element) => {
+	const computedAccessibleName = computeAccessibleName(element)
+	return computedAccessibleName
+}
+
+export const getAriaPressed = (
 	element: Element,
 	role: string
 ): AriaPressedValue => {
@@ -25,7 +31,7 @@ export const getAriaPressedInternal = (
 	return stringOrNullToBoolean(ariaPressed)
 }
 
-export const getAriaSelectedInternal = (
+export const getAriaSelected = (
 	element: Element,
 	role: string
 ): AriaSelectedValue => {
@@ -42,12 +48,12 @@ export const getAriaSelectedInternal = (
 	return stringOrNullToBoolean(ariaSelected)
 }
 
-export const getAriaBusyInternal = (element: Element): AriaBusyValue => {
+export const getAriaBusy = (element: Element): AriaBusyValue => {
 	const ariaSelected = element.getAttribute('aria-busy')
 	return stringOrNullToBoolean(ariaSelected)
 }
 
-export const getAriaExpandedInternal = (
+export const getAriaExpanded = (
 	element: Element,
 	role: string
 ): AriaExpandedValue => {
