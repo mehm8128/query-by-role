@@ -38,10 +38,12 @@ declare const createTargetWindow: (window: Window) => TargetWindow;
 
 interface QueryByRoleOptions {
   name?: string;
+  description?: string;
   pressed?: AriaPressedValue;
   selected?: AriaSelectedValue;
   busy?: AriaBusyValue;
   expanded?: AriaExpandedValue;
+  invalid?: AriaInvalidValue;
 }
 
 declare class QueryResult {

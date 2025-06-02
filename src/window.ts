@@ -5,14 +5,6 @@ import {
 } from './queryByRole'
 import type { QueryResult } from './queryResult'
 
-/**
- * NOTE: aria-queryのARIAState。これが必要最低限
- *
-    | "aria-checked"
-    | "aria-disabled"
-    | "aria-hidden"
- */
-
 export class TargetWindow {
 	window: Window
 	constructor(window: Window) {
@@ -40,3 +32,11 @@ const getSelectorForRole = (role: string) => {
 export const createTargetWindow = (window: Window): TargetWindow => {
 	return new TargetWindow(window)
 }
+
+/**
+ * TODO: 残り
+ *
+    | "aria-checked"
+    | "aria-disabled"
+    | "aria-hidden"
+ */
