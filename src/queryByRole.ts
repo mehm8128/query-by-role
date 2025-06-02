@@ -1,7 +1,9 @@
-import { getAccessibleName } from './getAriaAttributes'
 import {
+	getAccessibleDescription,
+	getAccessibleName,
 	getAriaBusy,
 	getAriaExpanded,
+	getAriaInvalid,
 	getAriaPressed,
 	getAriaSelected
 } from './getAriaAttributes'
@@ -9,16 +11,19 @@ import { QueryResult } from './queryResult'
 import type {
 	AriaBusyValue,
 	AriaExpandedValue,
+	AriaInvalidValue,
 	AriaPressedValue,
 	AriaSelectedValue
 } from './types'
 
 export interface QueryByRoleOptions {
 	name?: string
+	description?: string
 	pressed?: AriaPressedValue
 	selected?: AriaSelectedValue
 	busy?: AriaBusyValue
 	expanded?: AriaExpandedValue
+	invalid?: AriaInvalidValue
 }
 
 export const filterElementsByRoleOptions = (
@@ -32,6 +37,12 @@ export const filterElementsByRoleOptions = (
 				return true
 			}
 			return getAccessibleName(element) === options.name
+		})
+		.filter((element: Element) => {
+			if (options?.description === undefined) {
+				return true
+			}
+			return getAccessibleDescription(element) === options.description
 		})
 		.filter((element: Element) => {
 			if (options?.pressed === undefined) {
@@ -56,6 +67,12 @@ export const filterElementsByRoleOptions = (
 				return true
 			}
 			return getAriaExpanded(element, role) === options?.expanded
+		})
+		.filter((element: Element) => {
+			if (options?.invalid === undefined) {
+				return true
+			}
+			return getAriaInvalid(element, role) === options?.invalid
 		})
 
 	return new QueryResult(filteredElements)

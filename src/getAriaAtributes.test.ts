@@ -1,6 +1,8 @@
 import {
 	getAriaBusy,
+	getAriaCurrent,
 	getAriaExpanded,
+	getAriaInvalid,
 	getAriaPressed,
 	getAriaSelected
 } from './getAriaAttributes'
@@ -62,7 +64,7 @@ describe('getAriaAttributes', () => {
 			const result = getAriaExpanded(element, role)
 			expect(result).toBe(true)
 		})
-		it('explicit option role (aria-expanded: false)', () => {
+		it('explicit button role (aria-expanded: false)', () => {
 			const element = document.createElement('div')
 			element.setAttribute('role', role)
 			element.setAttribute('aria-expanded', 'false')
@@ -78,6 +80,48 @@ describe('getAriaAttributes', () => {
 		it('nothing related to expanded state is attached', () => {
 			const element = document.createElement('details')
 			const result = getAriaExpanded(element, role)
+			expect(result).toBe(false)
+		})
+	})
+	describe('getAriaInvalid', () => {
+		const role = 'textbox' as const
+
+		it('implicit textbox role (aria-invalid: true)', () => {
+			const element = document.createElement('input')
+			element.setAttribute('type', 'textbox')
+			element.setAttribute('aria-invalid', 'true')
+			const result = getAriaInvalid(element, role)
+			expect(result).toBe('true')
+		})
+		it('implicit textbox role (aria-invalid: "grammar")', () => {
+			const element = document.createElement('input')
+			element.setAttribute('type', 'textbox')
+			element.setAttribute('aria-invalid', 'grammar')
+			const result = getAriaInvalid(element, role)
+			expect(result).toBe('grammar')
+		})
+		it('explicit textbox role (aria-invalid: false)', () => {
+			const element = document.createElement('div')
+			element.setAttribute('role', role)
+			element.setAttribute('aria-invalid', 'false')
+			const result = getAriaInvalid(element, role)
+			expect(result).toBe('false')
+		})
+	})
+	describe('getAriaCurrent', () => {
+		const role = 'link' as const
+
+		it('aria-current: "page"', () => {
+			const element = document.createElement('a')
+			element.setAttribute('aria-current', 'page')
+			const result = getAriaCurrent(element, role)
+			expect(result).toBe('page')
+		})
+		it('aria-expanded: "false', () => {
+			const element = document.createElement('a')
+			element.setAttribute('role', role)
+			element.setAttribute('aria-current', 'false')
+			const result = getAriaCurrent(element, role)
 			expect(result).toBe(false)
 		})
 	})

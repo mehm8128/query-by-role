@@ -8,15 +8,9 @@ import type { QueryResult } from './queryResult'
 /**
  * NOTE: aria-queryのARIAState。これが必要最低限
  *
- * "aria-busy"
     | "aria-checked"
     | "aria-disabled"
-    | "aria-expanded"
-    | "aria-grabbed" -> deprecatedなのでやらない
     | "aria-hidden"
-    | "aria-invalid"
-    | "aria-pressed"
-    | "aria-selected";
  */
 
 export class TargetWindow {

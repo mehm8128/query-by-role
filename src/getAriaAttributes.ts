@@ -1,8 +1,13 @@
 import { type ARIARoleDefinitionKey, roles } from 'aria-query'
-import { computeAccessibleName } from 'dom-accessibility-api'
+import {
+	computeAccessibleDescription,
+	computeAccessibleName
+} from 'dom-accessibility-api'
 import type {
 	AriaBusyValue,
+	AriaCurrentValue,
 	AriaExpandedValue,
+	AriaInvalidValue,
 	AriaPressedValue,
 	AriaSelectedValue
 } from './types'
@@ -13,6 +18,10 @@ import { stringOrNullToBoolean } from './utils/stringOrNullToBoolean'
 export const getAccessibleName = (element: Element) => {
 	const computedAccessibleName = computeAccessibleName(element)
 	return computedAccessibleName
+}
+export const getAccessibleDescription = (element: Element) => {
+	const computedAccessibleDescription = computeAccessibleDescription(element)
+	return computedAccessibleDescription
 }
 
 export const getAriaPressed = (
@@ -68,4 +77,40 @@ export const getAriaExpanded = (
 	// NOTE: undefined(ここではnull)とfalseは厳密には違うが、今回は一緒にしてしまってOK
 	const ariaExpanded = element.getAttribute('aria-expanded')
 	return stringOrNullToBoolean(ariaExpanded)
+}
+
+export const getAriaInvalid = (
+	element: Element,
+	role: string
+): AriaInvalidValue => {
+	const ariaAttributeForRole = roles.get(role as ARIARoleDefinitionKey)
+	if (ariaAttributeForRole?.props['aria-invalid'] === undefined) {
+		return 'false'
+	}
+
+	const ariaInvalid = element.getAttribute('aria-invalid')
+	if (
+		!ariaInvalid ||
+		ariaInvalid.trim() === '' ||
+		ariaInvalid.toLocaleLowerCase() === 'false'
+	)
+		return 'false'
+	if (
+		ariaInvalid === 'true' ||
+		ariaInvalid === 'grammar' ||
+		ariaInvalid === 'spelling'
+	)
+		return ariaInvalid
+	return 'true'
+}
+
+export const getAriaCurrent = (
+	element: Element,
+	role: string
+): AriaCurrentValue => {
+	const ariaCurrent = element.getAttribute(
+		'aria-current'
+	) as AriaCurrentValue | null
+
+	return ariaCurrent ?? false
 }
