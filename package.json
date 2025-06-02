@@ -8,13 +8,9 @@
 	"homepage": "https://github.com/mehm8128/query-by-role",
 	"author": "mehm8128",
 	"license": "MIT",
-	"description": "queryByRole for browser.",
-	"files": [
-		"dist",
-		"package.json",
-		"README.md",
-		"LICENSE"
-	],
+	"description": "Tool for querying DOM elements by their ARIA role and attributes.",
+	"keywords": ["aria", "accessibility", "role"],
+	"files": ["dist", "package.json", "README.md", "LICENSE"],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
