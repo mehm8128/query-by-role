@@ -122,7 +122,7 @@ describe('getAriaAttributes', () => {
 			element.setAttribute('role', role)
 			element.setAttribute('aria-current', 'false')
 			const result = getAriaCurrent(element, role)
-			expect(result).toBe(false)
+			expect(result).toBe('false')
 		})
 	})
 })
