@@ -1,6 +1,6 @@
 {
 	"name": "query-by-role",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/mehm8128/query-by-role.git"
@@ -9,8 +9,17 @@
 	"author": "mehm8128",
 	"license": "MIT",
 	"description": "Tool for querying DOM elements by their ARIA role and attributes.",
-	"keywords": ["aria", "accessibility", "role"],
-	"files": ["dist", "package.json", "README.md", "LICENSE"],
+	"keywords": [
+		"aria",
+		"accessibility",
+		"role"
+	],
+	"files": [
+		"dist",
+		"package.json",
+		"README.md",
+		"LICENSE"
+	],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
